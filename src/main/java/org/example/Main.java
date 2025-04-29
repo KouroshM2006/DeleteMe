@@ -11,6 +11,11 @@ public class Main {
 
         selectionSort(nums);
         System.out.println(Arrays.toString(nums));
+
+        insertionSort(nums);
+        System.out.println(Arrays.toString(nums));
+
+
     }
 
 
@@ -39,6 +44,18 @@ public class Main {
             int temp = nums[i];
             nums[i] = nums[minIdx];
             nums[minIdx] = temp;
+        }
+    }
+
+    public static void insertionSort(int[] nums) {
+        for (int i = 1; i < nums.length; i++) {
+            int key = nums[i];
+            int j = i - 1;
+            while (j >= 0 && nums[j] > key) {
+                nums[j + 1] = nums[j];
+                j--;
+            }
+            nums[j + 1] = key;
         }
     }
 }
